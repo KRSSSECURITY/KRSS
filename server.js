@@ -47,7 +47,7 @@ function dedicatedOwnerLoginPage(name){
  html=html.replace('<h1>Owner Login</h1>','<h1>'+esc(name)+' — Owner Login</h1>');
  return html;
 }
-async function handle(req,res){const u=new URL(req.url,'http://localhost');const ip=req.socket.remoteAddress||'unknown';
+async function handle(req,res){const u=new URL(req.url,'http://krss-production-5a23.up.railway.app');const ip=req.socket.remoteAddress||'unknown';
 
  if(req.method==='GET'&&u.pathname==='/chatworks')return privateChatPage(req,res);
  if(req.method==='GET'&&u.pathname==='/api/chatworks/me'){const uo=userFromSession(req);return json(res,200,{authenticated:!!uo,user:uo?{id:uo.id,username:uo.username,name:uo.name}:null});}
